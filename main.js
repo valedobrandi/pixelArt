@@ -33,7 +33,7 @@ const creatPixelBoard = (value) => {
   rowPixels = value;
   const row = rowPixels * rowPixels;
   let rowId = 0;
-  const widthPix = 11.2;
+  const widthPix = 12;
   const columWidth = `${rowPixels * widthPix}px`;
   colum.style.width = columWidth;
   for (let indexA = 0; indexA < row; indexA += 1) {
