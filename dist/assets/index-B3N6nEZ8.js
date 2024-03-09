@@ -1,0 +1,20 @@
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))n(o);new MutationObserver(o=>{for(const l of o)if(l.type==="childList")for(const s of l.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&n(s)}).observe(document,{childList:!0,subtree:!0});function r(o){const l={};return o.integrity&&(l.integrity=o.integrity),o.referrerPolicy&&(l.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?l.credentials="include":o.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function n(o){if(o.ep)return;o.ep=!0;const l=r(o);fetch(o.href,l)}})();document.querySelector("#app").innerHTML=`
+  <div>
+  <h1 id="title">Pixel-Art</h1>
+  <ul id="color-palette">
+      <li id="color-red" class="color rand"></li>
+      <li id="color-blue" class="color rand"></li>
+      <li id="color-yellow" class="color rand"></li>
+      <li id="color-black" class="color rand"></li>
+      <li id="color-orange" class="color rand"></li>
+      <li id="color-green" class="color rand"></li>
+      <li id="color-white" class="color selected"></li>
+  </ul>
+  <button id="generate-board">Board</button>    
+  <input id="board-size" type="number" min="1">
+  <p> Auto-Save<p>
+  <section>
+      <div id="pixel-board"></div>
+  </section>       
+  </div>
+`;const m=document.getElementById("board-size"),h=document.getElementById("generate-board");m.value=JSON.parse(localStorage.getItem("boardSize"))||40;let c;const u=document.getElementById("pixel-board"),i=e=>{const t=e*e;let r=0;const o=`${e*20}px`;u.style.width=o,u.style.height=o;for(let l=0;l<t;l+=1){r+=1;const s=document.createElement("div");s.className="pixel",s.id=r,u.appendChild(s)}},g=()=>{const e=document.getElementsByClassName("pixel").length;for(let t=0;t<e;t+=1)document.querySelector(".pixel").remove()},B=()=>{x(),g(),c=parseInt(m.value,10),localStorage.setItem("boardSize",JSON.stringify(c)),m.value===""?alert("Board inválido!"):(c<5&&(c=5),i(c))};h.addEventListener("click",B);const C=e=>{const t=e.target.className,r=e.target;if(t.includes("color")){const n=document.getElementsByClassName("color");for(let o=0;o<n.length;o+=1)n[o].classList.remove("selected");r.classList.add("selected")}};document.addEventListener("click",C);const a=JSON.parse(localStorage.getItem("pixelBoard"));let d;a!==null?d=a:d=[];const I=e=>{const t=e.target.id,r=e.target.className,n=e.target;if(r.includes("pixel")){const l=getComputedStyle(document.querySelector(".selected")).getPropertyValue("background-color");n.style.backgroundColor=l,d.push({findId:t,bgcolor:l}),localStorage.setItem("pixelBoard",JSON.stringify(d))}};document.addEventListener("click",I);const E=document.querySelector("#color-palette"),f=document.createElement("button");f.id="clear-board";f.innerText="Clear";E.insertAdjacentElement("afterend",f);const x=()=>{const e=document.getElementsByClassName("pixel");for(let t=0;t<e.length;t+=1)e[t].style.backgroundColor="white",localStorage.clear()},S=document.querySelector("#clear-board");S.addEventListener("click",x);const b=document.createElement("button");b.id="button-random-color";b.innerText="Generate colors";S.insertAdjacentElement("afterend",b);let p;const P=()=>{const e=Math.random()*255,t=Math.random()*255,r=Math.random()*255;return p=`rgb(${parseInt(e,10)}, ${parseInt(t,10)}, ${parseInt(r,10)})`,p},N=()=>{const e=document.getElementsByClassName("rand");for(let t=0;t<e.length;t+=1)P(),e[t].style.backgroundColor=p},L=document.getElementById("button-random-color");L.addEventListener("click",N);const y=()=>{if(console.log(JSON.parse(localStorage.getItem("pixelBoard"))),JSON.parse(localStorage.getItem("pixelBoard"))!==null)for(let e=0;e<a.length;e+=1){const{findId:t}=a[e],r=a[e].bgcolor,n=document.getElementById(t);n.style.backgroundColor=r}},O=()=>{JSON.parse(localStorage.getItem("boardSize"))?(g(),c=JSON.parse(localStorage.getItem("boardSize")),i(c),y()):(g(),c=40,i(c),y())},v=document.querySelector("body");v.onload=O();
