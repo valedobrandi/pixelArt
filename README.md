@@ -9,6 +9,9 @@ Skills:
 
 DOM manipulation with javascript.
 
+Surge Deploy:
+ https://projectPixelArt.surge.sh
+
 
 
 [Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/valedobrandi/pixelArt)
