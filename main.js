@@ -10,7 +10,7 @@ document.querySelector('#app').innerHTML = `
       <li id="color-black" class="color"></li>
       <li id="color-orange" class="color"></li>
       <li id="color-green" class="color"></li>
-      <li id="color-white" class="white"></li>
+      <li id="color-white" class="color"></li>
   </ul>
   <button id="generate-board">Board</button>    
   <input id="board-size" type="number" min="1">
@@ -24,7 +24,7 @@ document.querySelector('#app').innerHTML = `
 // 2
 const btnBoardText = document.getElementById('board-size');
 const btnBoard = document.getElementById('generate-board');
-btnBoardText.value = JSON.parse(localStorage.getItem('boardSize')) || 5;
+btnBoardText.value = JSON.parse(localStorage.getItem('boardSize')) || 40;
 let rowPixels;
 let pixelNumber;
 const colum = document.getElementById('pixel-board');
@@ -33,7 +33,7 @@ const creatPixelBoard = (value) => {
   rowPixels = value;
   const row = rowPixels * rowPixels;
   let rowId = 0;
-  const widthPix = 12;
+  const widthPix = 11.6;
   const columWidth = `${rowPixels * widthPix}px`;
   colum.style.width = columWidth;
   for (let indexA = 0; indexA < row; indexA += 1) {
@@ -77,8 +77,8 @@ btnBoard.addEventListener('click', changePixelBoardSize);
 const markSelected = (event) => {
   const findClass = event.target.className;
   const elementColor = event.target;
-  if (findClass.includes('color')) {
-    const colorClass = document.getElementsByClassName('color');
+  if (findClass.includes('color' || 'white')) {
+    const colorClass = document.getElementsByClassName('color' || 'white');
     for (let index = 0; index < colorClass.length; index += 1) {
       colorClass[index].classList.remove('selected');
     }
@@ -179,7 +179,7 @@ const changePixelBoardSizeLoad = () => {
     setPixelsPaint();
   } else {
     deletPixelBoard();
-    pixelNumber = 5;
+    pixelNumber = 40;
     creatPixelBoard(pixelNumber);
     setPixelsPaint();
   }
