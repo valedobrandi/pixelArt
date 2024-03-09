@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(128, 128, 128, 0.2);
+  background-image: url('./hero.jpg');
 }
 
 section {
@@ -45,32 +45,51 @@ h1 {
 
 #color-red {
   background-color: red;
+  width: 20px;
+  height: 20px;
 }
 
 #color-blue {
   background-color: blue;
+  width: 20px;
+  height: 20px;
 }
 
 #color-yellow {
   background-color: yellow;
+  width: 20px;
+  height: 20px;
 }
 
 #color-black {
   background-color: black;
+  width: 20px;
+  height: 20px;
 }
 
 #color-orange {
   background-color: orange;
+  width: 20px;
+  height: 20px;
 }
 
 #color-green {
   background-color: green;
+  width: 20px;
+  height: 20px;
+}
+
+#color-white {
+  background-color: white;
+  width: 20px;
+  height: 20px;
 }
 
 #generate-board {
   text-align: center;
   height: 40px;
 }
+
 
 input {
   text-align: center;

@@ -12,7 +12,7 @@ document.querySelector('#app').innerHTML = `
       <li id="color-green" class="color"></li>
       <li id="color-white" class="white"></li>
   </ul>
-  <button id="generate-board">Pixels</button>    
+  <button id="generate-board">Board</button>    
   <input id="board-size" type="number" min="1">
   <p> Auto-Save<p>
   <section>
