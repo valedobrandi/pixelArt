@@ -1,5 +1,4 @@
 # pixelArt
-- My first Projetc.
 
     A pixel board to paint, with random colors.
 
