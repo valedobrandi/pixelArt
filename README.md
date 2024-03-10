@@ -13,4 +13,4 @@ Surge Deploy:
 
 
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/valedobrandi/pixelArt)
+Edit in StackBlitz: https://stackblitz.com/~/github.com/valedobrandi/pixelArt
